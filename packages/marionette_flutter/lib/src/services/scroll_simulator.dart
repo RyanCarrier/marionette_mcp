@@ -28,12 +28,6 @@ class ScrollSimulator {
     WidgetMatcher matcher,
     MarionetteConfiguration configuration,
   ) async {
-    // Find the target element
-    final target = _widgetFinder.findElement(matcher, configuration);
-    if (target == null) {
-      throw Exception('Element matching ${matcher.toJson()} not found');
-    }
-
     // Find the first Scrollable in the tree
     final scrollable = _widgetFinder.findElement(
       const TypeMatcher(Scrollable),
@@ -56,18 +50,21 @@ class ScrollSimulator {
     };
 
     // Scroll until visible
-    await _dragUntilVisible(target, scrollable, moveStep);
+    await _dragUntilVisible(matcher, scrollable, moveStep, configuration);
   }
 
   /// Repeatedly drags the scrollable until the target is visible.
   Future<void> _dragUntilVisible(
-    Element target,
+    WidgetMatcher targetMatcher,
     Element scrollable,
     Offset moveStep,
+    MarionetteConfiguration configuration,
   ) async {
     for (var i = 0; i < _maxScrolls; i++) {
+      // Find the target element
+      final target = _widgetFinder.findElement(targetMatcher, configuration);
       // Check if target is visible
-      if (_isHittable(target)) {
+      if (target != null && _isHittable(target)) {
         return;
       }
 
