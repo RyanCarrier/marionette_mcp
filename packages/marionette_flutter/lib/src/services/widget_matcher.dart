@@ -63,7 +63,7 @@ class CoordinatesMatcher extends WidgetMatcher {
   }
 }
 
-/// Matches widgets by their ValueKey<String> key.
+/// Matches widgets by their `ValueKey<String>` key.
 class KeyMatcher extends WidgetMatcher {
   const KeyMatcher(this.keyValue);
 
