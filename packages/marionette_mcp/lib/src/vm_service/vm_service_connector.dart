@@ -200,7 +200,7 @@ class VmServiceConnector {
   /// Taps an element matching the given criteria.
   ///
   /// [matcher] should contain one of:
-  /// - 'key': matches by ValueKey<String>
+  /// - 'key': matches by `ValueKey<String>`
   /// - 'text': matches by visible text content
   /// - 'type': matches by widget type name
   /// - 'x' and 'y': screen coordinates for tapping at a specific position

@@ -1,3 +1,8 @@
+# 0.2.3
+
+- Add example symlinks for improved pub.dev package scoring
+- Fix documentation lints for angle brackets in code references
+
 # 0.2.2
 
 - Add compatibility for Copilot `initialize` call
